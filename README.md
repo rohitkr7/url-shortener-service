@@ -168,9 +168,16 @@ docker compose up -d
 The service will start on port `9090`. Flyway will automatically execute database migrations on startup.
 
 ### 3. Run Automated Tests
-```bash
-./mvnw test
-```
+
+* **Run Unit Tests only (Fast, no DB required):**
+  ```bash
+  ./mvnw test
+  ```
+
+* **Run Unit & Integration Tests (Requires running PostgreSQL):**
+  ```bash
+  ./mvnw verify
+  ```
 
 ---
 
