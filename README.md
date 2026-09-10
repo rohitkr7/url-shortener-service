@@ -174,6 +174,48 @@ The service will start on port `9090`. Flyway will automatically execute databas
 
 ---
 
+## 📦 Packaging & Standalone Execution
+
+### 1. Build the Production JAR
+```bash
+./mvnw clean package
+```
+This generates the executable JAR inside the `target/` directory:
+```
+target/url-shortener-1.0.0-SNAPSHOT.jar
+```
+
+### 2. Run the JAR
+```bash
+java -jar target/url-shortener-1.0.0-SNAPSHOT.jar
+```
+
+### 3. Running with Custom Configuration
+You can override configuration properties via CLI arguments or environment variables:
+
+* **Via Command-Line Arguments:**
+  ```bash
+  java -jar target/url-shortener-1.0.0-SNAPSHOT.jar --server.port=9090 --spring.datasource.url=jdbc:postgresql://localhost:5432/shortener_db
+  ```
+
+* **Via Environment Variables:**
+  ```bash
+  SPRING_PROFILES_ACTIVE=prod \
+  SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/shortener_db \
+  SPRING_DATASOURCE_USERNAME=postgres \
+  SPRING_DATASOURCE_PASSWORD=postgrespassword \
+  java -jar target/url-shortener-1.0.0-SNAPSHOT.jar
+  ```
+
+### 4. Health Check Verification
+Once started, verify the service is running and connected to PostgreSQL via the Spring Boot Actuator endpoint:
+```bash
+curl http://localhost:9090/actuator/health
+# Response: {"status":"UP"}
+```
+
+---
+
 ## 🛡️ Error Handling & Resiliency
 
 - **404 Not Found**: Thrown when requesting non-existent short codes (`UrlNotFoundException`).
