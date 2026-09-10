@@ -1,0 +1,37 @@
+name: "🎯 Epic / Architectural Pillar"
+description: "Track a high-level initiative comprising multiple sub-stories"
+title: "[EPIC]: "
+labels: ["type:epic"]
+body:
+  - type: textarea
+    id: vision
+    attributes:
+      label: 🎯 Epic Vision & Goal
+      description: What is the overarching objective of this epic?
+      placeholder: Describe the architectural or product goal for this phase...
+    validations:
+      required: true
+
+  - type: textarea
+    id: tracked_issues
+    attributes:
+      label: 📋 Tracked Stories & Sub-Issues
+      description: List the child issues tracked by this epic using GitHub tasklist syntax.
+      placeholder: |
+        - [ ] #10 Sub-issue 1
+        - [ ] #11 Sub-issue 2
+        - [ ] #12 Sub-issue 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: 📊 Success Metrics & Definition of Done
+      description: How will we know this epic is complete and successful?
+      placeholder: |
+        - [ ] All child stories completed and merged
+        - [ ] Automated integration tests passing
+        - [ ] Performance benchmarks verified
+    validations:
+      required: true

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🗺️ Project Roadmap & Backlog
+    url: https://github.com/rohitkr7/url-shortener-service/blob/main/ROADMAP.md
+    about: Review our planned incremental evolution phases and technical milestones.
