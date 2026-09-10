@@ -20,9 +20,9 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:16-alpine
         env:
-          POSTGRES_DB: url_shortener
+          POSTGRES_DB: shortener_db
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgrespassword
         options: >-
@@ -41,5 +41,5 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Build and Verify with Maven
+      run: mvn -B clean verify --file pom.xml
