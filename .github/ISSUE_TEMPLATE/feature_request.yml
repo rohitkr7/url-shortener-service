@@ -1,0 +1,61 @@
+name: "✨ Feature Request / Story"
+description: "Propose a new feature, improvement, or architectural capability"
+title: "[Feature]: "
+labels: ["type:feature"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: 📖 Context & Problem Statement
+      description: What problem does this solve? Why is this feature needed?
+      placeholder: Describe the context, user pain point, or architectural requirement...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: 🛠️ Proposed Solution & Technical Tasks
+      description: Outline the proposed implementation approach and key tasks.
+      placeholder: |
+        - [ ] Task 1: Create DTO and validation
+        - [ ] Task 2: Implement service logic
+        - [ ] Task 3: Write unit/integration tests
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      description: What specific conditions must be met for this issue to be considered complete?
+      placeholder: |
+        - [ ] Condition 1: HTTP 200 returned on valid payload
+        - [ ] Condition 2: Metric incremented on execution
+    validations:
+      required: true
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: 🧱 Architectural Layer
+      options:
+        - "layer:api (Controller, DTO, REST)"
+        - "layer:core (Service, Domain Logic, Security)"
+        - "layer:data (Repository, JPA, Cache, DB Migration)"
+        - "layer:infra (Docker, Kafka, Redis, CI/CD)"
+        - "layer:observability (Metrics, Tracing, Logging)"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🚦 Priority
+      options:
+        - "priority:critical"
+        - "priority:high"
+        - "priority:medium"
+        - "priority:low"
+    validations:
+      required: false
